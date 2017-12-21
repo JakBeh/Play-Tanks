@@ -113,7 +113,7 @@ public class Game{
     	}
     	else {
     		// Umschalten auf Startscreen bei Spielende und Anzeigen des Scores
-    		controller.toStartScreen(level.getScore());
+    		controller.toStartScreen();
     		
     	}
     	
