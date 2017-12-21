@@ -91,12 +91,12 @@ public class Controller implements ActionListener, KeyListener {
             	// Neues Game-Objekt erzeugen und dem View-Objekt bekanntgeben
     	        game = new Game(this);
     	        view.setGame(game);
-    	        int lifes;
+    	        int health;
     	        
     	        // Falls der Input eine Zahl ist, werden die Leben auf diesen Wert gesetzt
     	        try{
-    	        	lifes = Integer.parseInt(playersLifes);
-    	        	game.getLevel().setLifes(lifes);
+    	        	health = Integer.parseInt(playersLifes);
+    	        	game.getLevel().setNewHealth(health);
     	        }catch(NumberFormatException q){
     	        }
             }
@@ -125,34 +125,23 @@ public class Controller implements ActionListener, KeyListener {
     	// Reagiert auf Tastendruck der Leertaste
     	if (e.getKeyCode() == KeyEvent.VK_SPACE){
     		// Pausiert das Spiel, falls es laeuft
-    		if(game.getLevel().ballWasStarted() == true){
-    			game.getLevel().stopBall();
-    		}
-    		// Startet das Spiel, falss es nicht laeuft
-    		else{
-    			game.getLevel().startBall();
-    		}
+    		
     	}
     	
     	//Reagiert auf Tastendruck des linken Pfeils, setzt Bewegungsrichtung des Paddles nach links
     	if (e.getKeyCode() == KeyEvent.VK_LEFT){
-    		game.getLevel().getPaddle().setDirection(-1);
+    		
     	}
     	
     	//Reagiert auf Tastendruck des rechten Pfeils, setzt Bewegungsrichtung des Paddles nach rechts
     	if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-    		game.getLevel().getPaddle().setDirection(1);
+    		
     	}
     	
     	//Reagiert auf Tastendruck der Escape-Taste, bricht das Spiel ab
     	if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
     		game.getLevel().setBeendet(true);
-    		game.getController().toStartScreen(game.getLevel().getScore());
-    	}
-    	
-    	//Reagiert auf Tastendruck der F12-Taste, startet/beendet den Paddle-Cheat
-    	if(e.getKeyCode() == KeyEvent.VK_F12){
-    		game.getLevel().toggleCheat();
+    		game.getController().toStartScreen();
     	}
     }
 
@@ -162,11 +151,11 @@ public class Controller implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     	if (e.getKeyCode() == KeyEvent.VK_LEFT){
-    		game.getLevel().getPaddle().setDirection(0);
+    		
     	}
     	
     	if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-    		game.getLevel().getPaddle().setDirection(0);
+    		
     	}
     }
 

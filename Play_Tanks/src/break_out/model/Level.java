@@ -32,6 +32,8 @@ public class Level extends Thread {
      */
     private int wind;
     
+    private int newHealth;
+    
     /**
      * Variable, um Abbruch der while-Schleife zu regeln
      */
@@ -45,9 +47,15 @@ public class Level extends Thread {
      */
     public Level(Game game, int levelnr, int score) {
     	this.game = game;
-    	this.player1 = new Ship();
-    	this.player2 = new Ship();
     	this.wind = ThreadLocalRandom.current().nextInt(-20, 21);
+    	this.newHealth = 0;
+    	if(newHealth > 0) {
+        	this.player1 = new Ship(newHealth);
+        	this.player2 = new Ship(newHealth);
+    	}else {
+        	this.player1 = new Ship();
+        	this.player2 = new Ship();
+    	}
     }
     
     public Ship getPlayer1() {
@@ -64,6 +72,10 @@ public class Level extends Thread {
      */
     public void setBeendet(boolean value){
     	beendet = value;
+    }
+    
+    public void setNewHealth(int health) {
+    	this.newHealth = health;
     }
 
     /**

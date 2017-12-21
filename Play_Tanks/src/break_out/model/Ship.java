@@ -67,8 +67,8 @@ public class Ship {
 			position.setX(position.getX() - Constants.DX_MOVEMENT);
 		}
 		
-		if(position.getX() > (Constants.SCREEN_WIDTH - Constants.PADDLE_WIDTH)){
-			position.setX(Constants.SCREEN_WIDTH - Constants.PADDLE_WIDTH);
+		if(position.getX() > (Constants.SCREEN_WIDTH - Constants.SHIP_WIDTH)){
+			position.setX(Constants.SCREEN_WIDTH - Constants.SHIP_WIDTH);
 		}
 		
 		if(position.getX() < 0){
