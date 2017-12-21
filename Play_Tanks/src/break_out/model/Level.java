@@ -2,6 +2,7 @@ package break_out.model;
 
 import break_out.Constants;
 import break_out.controller.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * This object contains information about the running game
@@ -27,6 +28,11 @@ public class Level extends Thread {
     private Ship player2;
     
     /**
+     * Konstante für den Wind, der die Schussbahn verändert
+     */
+    private int wind;
+    
+    /**
      * Variable, um Abbruch der while-Schleife zu regeln
      */
     private boolean beendet = false;
@@ -41,6 +47,15 @@ public class Level extends Thread {
     	this.game = game;
     	this.player1 = new Ship();
     	this.player2 = new Ship();
+    	this.wind = ThreadLocalRandom.current().nextInt(-20, 21);
+    }
+    
+    public Ship getPlayer1() {
+    	return player1;
+    }
+    
+    public Ship getPlayer2() {
+    	return player2;
     }
     
     /**
@@ -60,7 +75,7 @@ public class Level extends Thread {
     		
     		while (!beendet) {    			
     			// if ballWasStarted is true (Spiel soll ablaufen, d.h. der Ball soll sich bewegen)
-	            if () {
+	            if (false) {
 	                
 	            	
 	                

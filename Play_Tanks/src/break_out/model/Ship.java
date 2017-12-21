@@ -16,22 +16,15 @@ public class Ship {
 	private int direction;
 	
 	public Ship(){
-		this.position = new Position((ThreadLocalRandom.current().nextInt(0, Constants.SCREEN_WIDTH + Constants.SHIP_WIDTH + 1)),400);
-		this.strength = 0;
+		this.position = new Position(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH - (int)Constants.SHIP_WIDTH),400);
+		this.strength = 1;
 		this.angle = new Vector2D(0,0);
 		this.health = 100;
 	}
 	
-	public Ship(Position position){
-		this.position = position;
-		this.strength = 0;
-		this.angle = new Vector2D(0,0);
-		this.health = 100;
-	}
-	
-	public Ship(Position position, int health) {
-		this.position = position;
-		this.strength = 0;
+	public Ship(int health) {
+		this.position = new Position(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH - (int)Constants.SHIP_WIDTH),400);
+		this.strength = 1;
 		this.angle = new Vector2D(0,0);
 		this.health = health;
 	}

@@ -97,8 +97,11 @@ public class Field extends JPanel {
 		// Die Ballfarbe setzen
 		g2.setColor(new Color(200, 200, 200));
 		
-		// Den Ball zeichnen
-		drawBall(g2);
+		// Spieler 1 zeichnen
+		drawPlayer1(g2);
+		
+		// Spieler 2 zeichnen
+		drawPlayer2(g2);
 		
 		// Das Paddle zeichnen
 		drawPaddle(g2);
@@ -116,17 +119,19 @@ public class Field extends JPanel {
 		drawLifes(g2);
 		
 	}
-
-
-	/**
-	 * Zeichnet den Ball, greift dabei ueber das ihm bekannte view-Objekt auf das zugehoerige Game-Objekt und 
-	 * darueber auf das Level-Objekt zu, um dortige Methoden zu nutzen
-	 */
-	private void drawBall(Graphics2D g2) {
-		g2.fillOval((int) view.getGame().getLevel().getBall().getPosition().getX(),
-				(int) view.getGame().getLevel().getBall().getPosition().getY(),
-				(int) (Constants.BALL_DIAMETER),
-				(int) (Constants.BALL_DIAMETER));
+	
+	private void drawPlayer1(Graphics2D g2) {
+		g2.fillRect((int)view.getGame().getLevel().getPlayer1().getPosition().getX(),
+				(int)view.getGame().getLevel().getPlayer1().getPosition().getY(),
+				(int)Constants.SHIP_WIDTH,
+				(int)Constants.SHIP_HEIGHT);
+	}
+	
+	private void drawPlayer2(Graphics2D g2) {
+		g2.fillRect((int)view.getGame().getLevel().getPlayer2().getPosition().getX(),
+				(int)view.getGame().getLevel().getPlayer2().getPosition().getY(),
+				(int)Constants.SHIP_WIDTH,
+				(int)Constants.SHIP_HEIGHT);
 	}
 	
 	/**

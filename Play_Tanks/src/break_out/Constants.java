@@ -48,12 +48,12 @@ public class Constants {
     /**
      * The paddle width in pixels
      */
-    public static final double PADDLE_WIDTH = 70;  //70
+    public static final double SHIP_WIDTH = 40;  //70
     
     /**
      * The paddle height in pixels
      */
-    public static final double PADDLE_HEIGHT = 15;
+    public static final double SHIP_HEIGHT = 15;
     
     /**
      * The ball diameter in pixels
