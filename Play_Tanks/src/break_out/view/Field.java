@@ -40,6 +40,9 @@ public class Field extends JPanel {
 	private Color sky = new Color(135, 206, 250);
 	private Color trees = new Color(144, 238, 144);
 	private Color trees2 = new Color(0, 100, 0);
+	
+	private int[][] treeField = new int[8][2];
+	
 
 	/**
 	 * The constructor needs a view
@@ -51,6 +54,11 @@ public class Field extends JPanel {
 
 		this.view = view;
 		this.background = new Color(255, 255, 255);
+		
+		for(int i = 0; i < 8; i++) {
+			treeField[i][0] = ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH);
+			treeField[i][1] = ThreadLocalRandom.current().nextInt(20);
+		}
 
 		setFocusable(true);
 
@@ -131,9 +139,9 @@ public class Field extends JPanel {
 		for(int i = 0; i < 8; i++) {
 			int corner = ThreadLocalRandom.current().nextInt(80, 250);
 			g2.setColor(trees2);
-			g2.fillRoundRect(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH), 410 - (corner + 4 / 2), corner + 2, corner + 2, corner + 2, corner + 2);
+			g2.fillRoundRect(this.treeField[i][0], 410 - (corner/ 2) + this.treeField[i][1], corner + 2, corner + 2, corner + 2, corner + 2);
 			g2.setColor(trees);
-			g2.fillRoundRect(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH), 410 - (corner / 2), corner, corner, corner, corner);
+			g2.fillRoundRect(this.treeField[i][0] + 5, 410 - (corner/ 2) + this.treeField[i][1], corner, corner, corner, corner);
 		}
 	}
 	
