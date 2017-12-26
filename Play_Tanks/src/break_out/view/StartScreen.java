@@ -73,8 +73,8 @@ public class StartScreen extends JPanel {
 	public StartScreen(View view) {
 		super();
 		this.view = view;
-		double w = Constants.SCREEN_WIDTH;
-		double h = Constants.SCREEN_HEIGHT;
+		double w = Constants.SCREEN_WIDTH - 10;
+		double h = Constants.SCREEN_HEIGHT - 10;
 
 		setPreferredSize(new Dimension((int) w, (int) h));
 		setMaximumSize(new Dimension((int) w, (int) h));

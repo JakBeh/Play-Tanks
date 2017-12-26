@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import javax.swing.JPanel;
 
 import break_out.Constants;
@@ -34,6 +36,10 @@ public class Field extends JPanel {
 	 * The background color
 	 */
 	private Color background;
+	
+	private Color sky = new Color(135, 206, 250);
+	private Color trees = new Color(144, 238, 144);
+	private Color trees2 = new Color(0, 100, 0);
 
 	/**
 	 * The constructor needs a view
@@ -44,7 +50,7 @@ public class Field extends JPanel {
 		super();
 
 		this.view = view;
-		this.background = new Color(177, 92, 107);
+		this.background = new Color(255, 255, 255);
 
 		setFocusable(true);
 
@@ -94,8 +100,8 @@ public class Field extends JPanel {
 		g2.setColor(background);
 		g2.fillRect(0, 0, getWidth(), getHeight());
 		
-		// Die Ballfarbe setzen
-		g2.setColor(new Color(200, 200, 200));
+		// Dem Ozean zeichnen
+		drawBackground(g2);
 		
 		// Spieler 1 zeichnen
 		drawPlayer1(g2);
@@ -108,10 +114,31 @@ public class Field extends JPanel {
 		
 		// Das Leben von Spieler 2 zeichnen
 		drawLifesPlayer2(g2);
-		
+	}
+	
+	private void drawBackground(Graphics2D g2) {
+		drawSky(g2);
+		drawHills(g2);
+		drawWater(g2);
+	}
+	
+	private void drawSky(Graphics2D g2) {
+		g2.setColor(sky);
+		g2.fillRect(0, 0, getWidth(), getHeight());
+	}
+	
+	private void drawHills(Graphics2D g2) {
+		for(int i = 0; i < 8; i++) {
+			int corner = ThreadLocalRandom.current().nextInt(80, 250);
+			g2.setColor(trees2);
+			g2.fillRoundRect(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH), 410 - (corner + 4 / 2), corner + 2, corner + 2, corner + 2, corner + 2);
+			g2.setColor(trees);
+			g2.fillRoundRect(ThreadLocalRandom.current().nextInt((int)Constants.SCREEN_WIDTH), 410 - (corner / 2), corner, corner, corner, corner);
+		}
 	}
 	
 	private void drawPlayer1(Graphics2D g2) {
+		g2.setColor(Color.RED);
 		g2.fillRect((int)view.getGame().getLevel().getPlayer1().getPosition().getX(),
 				(int)view.getGame().getLevel().getPlayer1().getPosition().getY(),
 				(int)Constants.SHIP_WIDTH,
@@ -119,6 +146,7 @@ public class Field extends JPanel {
 	}
 	
 	private void drawPlayer2(Graphics2D g2) {
+		g2.setColor(Color.GREEN);
 		g2.fillRect((int)view.getGame().getLevel().getPlayer2().getPosition().getX(),
 				(int)view.getGame().getLevel().getPlayer2().getPosition().getY(),
 				(int)Constants.SHIP_WIDTH,
@@ -147,5 +175,10 @@ public class Field extends JPanel {
 		g2.setColor(Color.BLUE);
 		g2.setFont(font);
 		g2.drawString("Leben: "+ view.getGame().getLevel().getPlayer2().getHealth(), (int)Constants.SCREEN_WIDTH - 100, 20);
+	}
+	
+	private void drawWater(Graphics2D g2) {
+		g2.setColor(Color.BLUE);
+		g2.fillRect(0, 410, (int)Constants.SCREEN_WIDTH, (int)Constants.SCREEN_HEIGHT - 410);
 	}
 }
