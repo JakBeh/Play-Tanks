@@ -29,6 +29,20 @@ public class Ship {
 		this.health = health;
 	}
 	
+	public Ship(int health, Position position) {
+		this.position = position;
+		this.strength = 1;
+		this.angle = new Vector2D(0,0);
+		this.health = health;
+	}
+	
+	public Ship(Position position) {
+		this.position = position;
+		this.strength = 1;
+		this.angle = new Vector2D(0,0);
+		this.health = 100;
+	}
+	
 	public int getHealth() {
 		return this.health;
 	}

@@ -138,6 +138,11 @@ public class Field extends JPanel {
 	}
 	
 	private void drawPlayer1(Graphics2D g2) {
+		g2.setColor(Color.BLACK);
+		g2.fillRect((int)view.getGame().getLevel().getPlayer1().getPosition().getX() - 1,
+				(int)view.getGame().getLevel().getPlayer1().getPosition().getY() - 1,
+				(int)Constants.SHIP_WIDTH + 1,
+				(int)Constants.SHIP_HEIGHT + 2);
 		g2.setColor(Color.RED);
 		g2.fillRect((int)view.getGame().getLevel().getPlayer1().getPosition().getX(),
 				(int)view.getGame().getLevel().getPlayer1().getPosition().getY(),
@@ -146,6 +151,11 @@ public class Field extends JPanel {
 	}
 	
 	private void drawPlayer2(Graphics2D g2) {
+		g2.setColor(Color.BLACK);
+		g2.fillRect((int)view.getGame().getLevel().getPlayer2().getPosition().getX() - 1,
+				(int)view.getGame().getLevel().getPlayer2().getPosition().getY() - 1,
+				(int)Constants.SHIP_WIDTH + 1,
+				(int)Constants.SHIP_HEIGHT + 2);
 		g2.setColor(Color.GREEN);
 		g2.fillRect((int)view.getGame().getLevel().getPlayer2().getPosition().getX(),
 				(int)view.getGame().getLevel().getPlayer2().getPosition().getY(),

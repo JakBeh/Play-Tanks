@@ -47,11 +47,20 @@ public class Level extends Thread {
      */
     public Level(Game game, int levelnr, int score) {
     	this.game = game;
-    	this.wind = ThreadLocalRandom.current().nextInt(-20, 21);
+    	//this.wind = ThreadLocalRandom.current().nextInt(-20, 21); //TODO
     	this.newHealth = 0;
     	if(newHealth > 0) {
         	this.player1 = new Ship(newHealth);
-        	this.player2 = new Ship(newHealth);
+        	//this.player2 = new Ship(newHealth);
+        	if(this.getPlayer1().getPosition().getX() > Constants.SCREEN_WIDTH - (2 * Constants.SHIP_WIDTH) - 120) {
+        		Position temp = this.getPlayer1().getPosition();
+        		temp.setX(temp.getX() + ThreadLocalRandom.current().nextInt((int)Constants.SHIP_WIDTH + 5, 100));
+        		this.player2 = new Ship(temp);
+        	}else {
+        		Position temp = this.getPlayer1().getPosition();
+        		temp.setX(temp.getX() - ThreadLocalRandom.current().nextInt((int)Constants.SHIP_WIDTH + 5, 100));
+        		this.player2 = new Ship(temp);
+        	}
     	}else {
         	this.player1 = new Ship();
         	this.player2 = new Ship();
