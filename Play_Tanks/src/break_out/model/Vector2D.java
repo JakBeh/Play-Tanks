@@ -46,7 +46,11 @@ public class Vector2D {
 	 * @return Double, Wert von dx
 	 */
 	public double getDx(){
+<<<<<<< HEAD
 		return this.dx;
+=======
+		return dx;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	}
 	
 	/**
@@ -54,7 +58,11 @@ public class Vector2D {
 	 * @return Double, Wert von dy
 	 */
 	public double getDy(){
+<<<<<<< HEAD
 		return this.dy;
+=======
+		return dy;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	}
 	
 	/**
@@ -78,6 +86,7 @@ public class Vector2D {
 	 * Dient zur Regulierung der Geschwindigkeit des Balles
 	 */
 	public void rescale(){
+<<<<<<< HEAD
 		double betrag =  Math.sqrt(this.dx * this.dx + this.dy * this.dy);
 		this.dx = this.dx * (1 / betrag);
 		this.dy = this.dy * (1 / betrag);
@@ -89,5 +98,13 @@ public class Vector2D {
 	public void scale(double scalar){
 		this.dx = this.dx * scalar;
 		this.dy = this.dy * scalar;
+=======
+		double betrag =  Math.sqrt(dx * dx + dy * dy);
+		dx = dx * (1 / betrag);
+		dy = dy * (1 / betrag);
+		
+		dx = dx * Constants.BALL_SPEED;
+		dy = dy * Constants.BALL_SPEED;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	}
 }

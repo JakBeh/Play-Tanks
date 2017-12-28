@@ -43,8 +43,11 @@ public class Field extends JPanel {
 	
 	private int[][] treeField = new int[8][2];
 	
+<<<<<<< HEAD
 	private Font font = new Font("Arial", Font.PLAIN, 20);
 	
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 
 	/**
 	 * The constructor needs a view
@@ -124,17 +127,24 @@ public class Field extends JPanel {
 		
 		// Das Leben von Spieler 2 zeichnen
 		drawLifesPlayer2(g2);
+<<<<<<< HEAD
 		
 		drawStrengthPlayer1(g2);
 		
 		drawStrengthPlayer2(g2);
 		
 		drawMissle(g2);
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	}
 	
 	private void drawBackground(Graphics2D g2) {
 		drawSky(g2);
+<<<<<<< HEAD
 		//drawHills(g2);
+=======
+		drawHills(g2);
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 		drawWater(g2);
 	}
 	
@@ -184,9 +194,17 @@ public class Field extends JPanel {
 	 * @param g2 Graphics2D, Darstellung des Hintergrundes
 	 */
 	private void drawLifesPlayer1(Graphics g2){
+<<<<<<< HEAD
 		g2.setColor(Color.RED);
 		g2.setFont(font);
 		g2.drawString("Leben: "+ view.getGame().getLevel().getPlayer1().getHealth(), 0, 20);
+=======
+		Font font = new Font("Arial", Font.PLAIN, 20);
+		
+		g2.setColor(Color.BLUE);
+		g2.setFont(font);
+		g2.drawString("Leben: "+ view.getGame().getLevel().getPlayer1().getHealth(), (int)Constants.SCREEN_WIDTH - 100, 20);
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	}
 	
 	/**
@@ -194,11 +212,18 @@ public class Field extends JPanel {
 	 * @param g2 Graphics2D, Darstellung des Hintergrundes
 	 */
 	private void drawLifesPlayer2(Graphics g2){
+<<<<<<< HEAD
 		g2.setColor(Color.GREEN);
+=======
+		Font font = new Font("Arial", Font.PLAIN, 20);
+		
+		g2.setColor(Color.BLUE);
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 		g2.setFont(font);
 		g2.drawString("Leben: "+ view.getGame().getLevel().getPlayer2().getHealth(), (int)Constants.SCREEN_WIDTH - 100, 20);
 	}
 	
+<<<<<<< HEAD
 	private void drawStrengthPlayer1(Graphics g2){
 		g2.setColor(Color.RED);
 		g2.setFont(font);
@@ -211,10 +236,13 @@ public class Field extends JPanel {
 		g2.drawString("Power: " + view.getGame().getLevel().getPlayer2().getStrength(), (int)Constants.SCREEN_WIDTH - 100, 45);
 	}
 	
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	private void drawWater(Graphics2D g2) {
 		g2.setColor(Color.BLUE);
 		g2.fillRect(0, 410, (int)Constants.SCREEN_WIDTH, (int)Constants.SCREEN_HEIGHT - 410);
 	}
+<<<<<<< HEAD
 	
 	/**
 	 * Method for drawing the missle as a 4 px wide circle, with the middle being the position of the missle
@@ -227,4 +255,6 @@ public class Field extends JPanel {
 				4,
 				4);
 	}
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 }

@@ -54,6 +54,14 @@ public class Constants {
      * The paddle height in pixels
      */
     public static final double SHIP_HEIGHT = 15;
+<<<<<<< HEAD
+=======
+    
+    /**
+     * The ball diameter in pixels
+     */
+    public static final double BALL_DIAMETER = 15;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
        
     /**
      * The paddle speed
@@ -61,10 +69,16 @@ public class Constants {
     public static final double DX_MOVEMENT = 4.5;
     
     /**
+<<<<<<< HEAD
      * The gravity constant, that affects the missle
      */
     public static final double GRAVITY = 9;
     
     public static final double MISSLE_SPEED = 1;
+=======
+     * The ball speed
+     */
+    public static final double BALL_SPEED = 1.20;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     
 }

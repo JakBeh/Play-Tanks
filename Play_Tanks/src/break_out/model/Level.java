@@ -27,6 +27,7 @@ public class Level extends Thread {
      */
     private Ship player2;
     
+<<<<<<< HEAD
     private Missle missle;
     
     /**
@@ -40,14 +41,19 @@ public class Level extends Thread {
      */
     private boolean waitTime;
     
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     /**
      * Konstante für den Wind, der die Schussbahn verändert
      */
     private int wind;
     
+<<<<<<< HEAD
     /**
      * Constant for the health, when a costum health is set
      */
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     private int newHealth;
     
     /**
@@ -65,6 +71,7 @@ public class Level extends Thread {
     	this.game = game;
     	//this.wind = ThreadLocalRandom.current().nextInt(-20, 21); //TODO
     	this.newHealth = 0;
+<<<<<<< HEAD
     	this.playerStatus = true;
     	this.waitTime = false;
     	if(this.newHealth > 0) {
@@ -76,6 +83,17 @@ public class Level extends Thread {
         		this.player2 = new Ship(temp);
         	}else {
         		Position temp = getPlayer1().getPosition();
+=======
+    	if(newHealth > 0) {
+        	this.player1 = new Ship(newHealth);
+        	//this.player2 = new Ship(newHealth);
+        	if(this.getPlayer1().getPosition().getX() > Constants.SCREEN_WIDTH - (2 * Constants.SHIP_WIDTH) - 120) {
+        		Position temp = this.getPlayer1().getPosition();
+        		temp.setX(temp.getX() + ThreadLocalRandom.current().nextInt((int)Constants.SHIP_WIDTH + 5, 100));
+        		this.player2 = new Ship(temp);
+        	}else {
+        		Position temp = this.getPlayer1().getPosition();
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
         		temp.setX(temp.getX() - ThreadLocalRandom.current().nextInt((int)Constants.SHIP_WIDTH + 5, 100));
         		this.player2 = new Ship(temp);
         	}
@@ -83,6 +101,7 @@ public class Level extends Thread {
         	this.player1 = new Ship();
         	this.player2 = new Ship();
     	}
+<<<<<<< HEAD
     	this.missle = new Missle();
     }
     
@@ -104,6 +123,16 @@ public class Level extends Thread {
     
     public boolean getWaitTime(){
     	return this.waitTime;
+=======
+    }
+    
+    public Ship getPlayer1() {
+    	return player1;
+    }
+    
+    public Ship getPlayer2() {
+    	return player2;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     }
     
     /**
@@ -111,12 +140,17 @@ public class Level extends Thread {
      * @param value boolean, Wert, der in beendet geschrieben werden soll
      */
     public void setBeendet(boolean value){
+<<<<<<< HEAD
     	this.beendet = value;
+=======
+    	beendet = value;
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     }
     
     public void setNewHealth(int health) {
     	this.newHealth = health;
     }
+<<<<<<< HEAD
     
     public void togglePlayerStatus(){
     	this.playerStatus = !this.playerStatus;
@@ -125,17 +159,27 @@ public class Level extends Thread {
     public void toggleWaitTime(){
     	this.waitTime = !this.waitTime;
     }
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 
     /**
      * This method is the thread logic.
      */
     public void run() {
     		// update view, d. h. veranlasse das Neuzeichnen des Spielfeldes
+<<<<<<< HEAD
     		this.game.notifyObservers();
     		
     		while (!this.beendet) {    			
     			// if ballWasStarted is true (Spiel soll ablaufen, d.h. der Ball soll sich bewegen)
 	            if (true) {
+=======
+    		game.notifyObservers();
+    		
+    		while (!beendet) {    			
+    			// if ballWasStarted is true (Spiel soll ablaufen, d.h. der Ball soll sich bewegen)
+	            if (false) {
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	                
 	            	
 	                
@@ -146,7 +190,11 @@ public class Level extends Thread {
 	                
 	                // update view
 	            	
+<<<<<<< HEAD
 	                this.game.notifyObservers();
+=======
+	                game.notifyObservers();
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 	                
 	            }
 	            // pause thread by a few millis

@@ -124,6 +124,7 @@ public class Controller implements ActionListener, KeyListener {
     	
     	// Reagiert auf Tastendruck der Leertaste
     	if (e.getKeyCode() == KeyEvent.VK_SPACE){
+<<<<<<< HEAD
     		// Starts a shot, regarding the player
     		if(this.game.getLevel().getPlayerStatus() && !this.game.getLevel().getWaitTime()){
     			this.game.getLevel().getMissle().shot(this.game.getLevel().getPlayer1().getPosition(),
@@ -136,6 +137,10 @@ public class Controller implements ActionListener, KeyListener {
     			}
     		this.game.getLevel().togglePlayerStatus();
     		//this.game.getLevel().toggleWaitTime();  //TODO
+=======
+    		// Pausiert das Spiel, falls es laeuft
+    		
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     	}
     	
     	//Reagiert auf Tastendruck des linken Pfeils, setzt Bewegungsrichtung des Paddles nach links
@@ -148,6 +153,7 @@ public class Controller implements ActionListener, KeyListener {
     		
     	}
     	
+<<<<<<< HEAD
     	if (e.getKeyCode() == KeyEvent.VK_UP){
     		if(this.game.getLevel().getPlayerStatus()){
     			this.game.getLevel().getPlayer1().increaseStrength();
@@ -164,6 +170,8 @@ public class Controller implements ActionListener, KeyListener {
     		}
     	}
     	
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
     	//Reagiert auf Tastendruck der Escape-Taste, bricht das Spiel ab
     	if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
     		game.getLevel().setBeendet(true);

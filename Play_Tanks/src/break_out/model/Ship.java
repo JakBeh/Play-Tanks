@@ -148,6 +148,7 @@ public class Ship {
 			position.setX(0);
 		}
 	}
+<<<<<<< HEAD
 	
 	public void increaseStrength(){
 		if(this.strength < 100){
@@ -160,4 +161,6 @@ public class Ship {
 			this.strength--;
 		}
 	}
+=======
+>>>>>>> 3634986bd50c8ce7d5e97f974af7fb83d54a49c9
 }
